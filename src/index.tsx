@@ -1,11 +1,6 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 
-const Hello = (): JSX.Element => (
-  <h1>Hello!</h1>
-);
+const App = (): JSX.Element => <div className="container" />;
 
-ReactDOM.render(
-  <Hello />,
-  document.getElementById('root'),
-);
+ReactDOM.render(<App />, document.getElementById("root"));

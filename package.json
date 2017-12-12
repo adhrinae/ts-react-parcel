@@ -16,8 +16,10 @@
     "react-dom": "^16.2.0"
   },
   "devDependencies": {
+    "prettier": "^1.9.2",
     "tslint": "^5.8.0",
     "tslint-config-airbnb": "^5.4.2",
+    "tslint-config-prettier": "^1.6.0",
     "tslint-loader": "^3.5.3",
     "tslint-react": "^3.2.0",
     "typescript": "^2.6.2"
