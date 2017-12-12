@@ -1,9 +1,9 @@
 import * as React from "react";
 
-interface SwitchProps {
-  on: boolean;
-  className: string;
-  onClick(): void;
+export interface SwitchProps {
+  on?: boolean;
+  className?: string;
+  onClick?(): void;
 }
 
 export default function Switch({ on, className = "", ...props }: SwitchProps) {
