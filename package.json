@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "parcel-bundler": "^1.2.0",
+    "parcel-plugin-typescript": "^0.2.0-angular.0",
     "prettier": "^1.9.2",
     "tslint": "^5.8.0",
     "tslint-config-airbnb": "^5.4.2",
