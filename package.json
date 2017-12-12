@@ -1,7 +1,11 @@
 {
-  "name": "toggle-ts-parcel",
+  "name": "ts-react-parcel",
   "version": "1.0.0",
   "description": "Practicing typescript with React, using parcel bundler",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/emaren84/ts-react-parcel"
+  },
   "main": "index.js",
   "scripts": {
     "develop": "parcel ./src/index.html",
