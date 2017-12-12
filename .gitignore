@@ -2,3 +2,4 @@
 /public
 /dist
 .cache
+/.vscode
