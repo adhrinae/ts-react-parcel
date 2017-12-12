@@ -1,17 +1,17 @@
 import * as React from "react";
 import { SwitchProps } from "./Switch";
-import { compose } from "./utility";
+import { compose } from "../utilities/compose";
 
 interface TogglerProps {
   on: boolean | undefined;
   toggle(): void;
   reset(): void;
-  getTogglerProps(): SwitchProps;
+  getTogglerProps(options?: SwitchProps): SwitchProps;
 }
 
 interface ToggleProps {
   defaultOn?: boolean;
-  on: boolean | undefined;
+  on?: boolean | undefined;
   onToggle(on: boolean | undefined): void;
   onReset(on: boolean | undefined): void;
   render(toggle: TogglerProps): JSX.Element;

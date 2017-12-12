@@ -2,6 +2,11 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "./index.css";
 
-const App = (): JSX.Element => <div className="container" />;
+import App from "./components/App";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <div className="container">
+    <App />
+  </div>,
+  document.getElementById("root")
+);
