@@ -1,14 +1,15 @@
 {
-  "name": "toggle-ts",
+  "name": "toggle-ts-parcel",
   "version": "1.0.0",
-  "description": "",
+  "description": "Practicing typescript with React, using parcel bundler",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "develop": "parcel ./src/index.html",
+    "build": "parcel build ./src/index.html --public-url '/'"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Ahn Dohyung",
+  "license": "MIT",
   "dependencies": {
     "@types/react": "^16.0.29",
     "@types/react-dom": "^16.0.3",
@@ -16,11 +17,11 @@
     "react-dom": "^16.2.0"
   },
   "devDependencies": {
+    "parcel-bundler": "^1.2.0",
     "prettier": "^1.9.2",
     "tslint": "^5.8.0",
     "tslint-config-airbnb": "^5.4.2",
     "tslint-config-prettier": "^1.6.0",
-    "tslint-loader": "^3.5.3",
     "tslint-react": "^3.2.0",
     "typescript": "^2.6.2"
   }
