@@ -32,13 +32,13 @@ export default class App extends React.Component<{}, AppState> {
               })}
             />
             {timesClicked > 4 ? (
-              <div>
+              <div data-test="click-warning">
                 You've Clicked too much!
                 <br />
                 <button onClick={toggle.reset}>reset</button>
               </div>
             ) : timesClicked > 0 ? (
-              <div>Click count: {timesClicked}</div>
+              <div data-test="click-counter">Click count: {timesClicked}</div>
             ) : null}
           </div>
         )}
