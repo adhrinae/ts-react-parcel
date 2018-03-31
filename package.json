@@ -1,6 +1,6 @@
 {
   "name": "ts-react-parcel",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Typescript with React, using parcel bundler",
   "repository": {
     "type": "git",
@@ -14,37 +14,50 @@
     "test:watch": "jest --watch"
   },
   "jest": {
-    "setupFiles": ["<rootDir>/config/test-shim.js", "<rootDir>/config/test-setup.js"],
-    "moduleFileExtensions": ["ts", "tsx", "js"],
+    "setupFiles": [
+      "<rootDir>/config/test-shim.js",
+      "<rootDir>/config/test-setup.js"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
     "transform": {
       "^.+\\.(ts|tsx)$": "<rootDir>/config/test-preprocessor.js"
     },
-    "testMatch": ["**/__tests__/*.(test|spec).(ts|tsx|js)"]
+    "testMatch": [
+      "**/__tests__/*.(test|spec).(ts|tsx|js)"
+    ]
   },
-  "keywords": ["Typescript", "React", "Parcel"],
+  "keywords": [
+    "Typescript",
+    "React",
+    "Parcel"
+  ],
   "author": "Ahn Dohyung",
   "license": "MIT",
   "dependencies": {
-    "@types/react": "^16.0.29",
-    "@types/react-dom": "^16.0.3",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0"
   },
   "devDependencies": {
-    "@types/enzyme": "^3.1.5",
-    "@types/jest": "^21.1.8",
-    "enzyme": "^3.2.0",
-    "enzyme-adapter-react-16": "^1.1.0",
-    "jest": "^21.2.1",
-    "parcel-bundler": "^1.2.0",
-    "parcel-plugin-typescript": "^0.2.0-angular.0",
-    "prettier": "^1.9.2",
-    "react-test-renderer": "^16.2.0",
-    "ts-jest": "^21.2.4",
-    "tslint": "^5.8.0",
-    "tslint-config-airbnb": "^5.4.2",
-    "tslint-config-prettier": "^1.6.0",
-    "tslint-react": "^3.2.0",
-    "typescript": "^2.6.2"
+    "@types/enzyme": "^3.1.9",
+    "@types/jest": "^22.2.2",
+    "@types/react": "^16.1.0",
+    "@types/react-dom": "^16.0.4",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^22.4.3",
+    "parcel-bundler": "^1.7.0",
+    "parcel-plugin-typescript": "^0.7.0",
+    "prettier": "^1.11.1",
+    "react-test-renderer": "^16.3.0",
+    "ts-jest": "^22.4.2",
+    "tslint": "^5.9.1",
+    "tslint-config-airbnb": "^5.8.0",
+    "tslint-config-prettier": "^1.10.0",
+    "tslint-react": "^3.5.1",
+    "typescript": "^2.8.1"
   }
 }
