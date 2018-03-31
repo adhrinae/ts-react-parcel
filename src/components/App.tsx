@@ -17,7 +17,7 @@ export default class App extends React.Component<{}, AppState> {
     this._handleReset = this._handleReset.bind(this);
   }
 
-  public render(): JSX.Element {
+  render(): JSX.Element {
     const { timesClicked, on } = this.state;
     return (
       <Toggle

@@ -22,7 +22,7 @@ interface ToggleState {
 }
 
 export default class Toggle extends React.Component<ToggleProps, ToggleState> {
-  public static defaultProps = {
+  static defaultProps = {
     defaultOn: false,
     onToggle: () => {},
     onReset: () => {},
@@ -38,7 +38,7 @@ export default class Toggle extends React.Component<ToggleProps, ToggleState> {
     this._getTogglerProps = this._getTogglerProps.bind(this);
   }
 
-  public render(): JSX.Element {
+  render(): JSX.Element {
     return this.props.render({
       on: this._isOnControlled() ? this.props.on : this.state.on,
       toggle: this._toggle,
