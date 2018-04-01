@@ -3,7 +3,7 @@ import { SwitchProps } from "./Switch";
 import { compose } from "../utilities/compose";
 
 interface TogglerProps {
-  on: boolean | undefined;
+  on?: boolean;
   toggle(): void;
   reset(): void;
   getTogglerProps(options?: SwitchProps): SwitchProps;
@@ -11,9 +11,9 @@ interface TogglerProps {
 
 interface ToggleProps {
   defaultOn?: boolean;
-  on?: boolean | undefined;
-  onToggle(on: boolean | undefined): void;
-  onReset(on: boolean | undefined): void;
+  on?: boolean;
+  onToggle(on?: boolean): void;
+  onReset(on?: boolean): void;
   render(toggle: TogglerProps): JSX.Element;
 }
 
