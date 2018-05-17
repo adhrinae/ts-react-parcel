@@ -15,7 +15,7 @@ The original source code of the provided example is [here](https://github.com/ke
 ## How to set up the project
 
 ```
-git clone git@github.com:emaren84/ts-react-parcel.git
+git clone git@github.com:adhrinae/ts-react-parcel.git
 cd ts-react-parcel
 npm install
 
