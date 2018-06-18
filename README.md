@@ -2,15 +2,15 @@
 
 This repository has basic settings for buildling react application in Typescript.
 
-The original source code of the provided example is [here](https://github.com/kentcdodds/advanced-react-patterns/blob/master/14-use-control-props/index.html).
+The original source code of the provided example is [here](https://github.com/kentcdodds/advanced-react-patterns-v2/blob/master/src/exercises-final/11.extra-3.js).
 
 ## Built in settings
 
-* React + ReactDOM (16.3.0) -- Updated!
-* Typescript (with TSLint setting)
-* Prettier + tslint-config-prettier
-* Test configuration using Jest + Enzyme
-* Parcel bundler -- 1.7.0
+- React + ReactDOM (16.4.1)
+- Typescript (with TSLint setting)
+- Prettier + tslint-config-prettier
+- Test configuration using Jest + Enzyme
+- Parcel bundler (1.9.1)
 
 ## How to set up the project
 
@@ -57,3 +57,24 @@ The default output directory is `/dist`. You can change the destination wherever
 
 You have to create `__tests__` directory at the same location of files which you want to test.
 Test file's name should be `SOURCE.test.ts/tsx/js` or `SOURCE.spec.ts/tsx/js`.
+
+## Miscellaneous
+
+This Project uses pre-commit hook for `prettier` and testing application.  
+If you don't like it, remove the `husky` package from your repository and erase following scripts.
+
+    npm rm husky
+    yarn remove husky
+
+then
+
+```
+// package.json
+// ...
+"husky": {
+  "hooks": {
+    "pre-commit": "npm run prettify && npm run test"
+  }
+},
+// ...
+```
