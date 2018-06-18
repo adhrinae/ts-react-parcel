@@ -1,37 +1,27 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { render, Simulate } from 'react-testing-library'
+
 import App from '../App'
-import Switch from '../Switch'
 
-function sel(testId: string): string {
-  return `[data-test="${testId}"]`
-}
+/**
+ * Just a simple integration test
+ */
 
-test('App Component renders with default state', () => {
-  const wrap = mount(<App />)
-  const initState = { timesClicked: 0, on: false }
+test('App Component renders with toggle switch', () => {
+  const wrap = render(<App />)
 
-  expect(wrap.containsMatchingElement(<Switch />)).toBe(true)
-  expect(wrap.state()).toMatchObject(initState)
+  expect(wrap.getByTestId('toggle-container')).toBeTruthy()
 })
 
-test('App Component shows click count when toggled less than 4 times', () => {
-  const wrap = mount(<App />)
-  const toggleButton = wrap.find('.toggle button')
+test('App Component can change toggle status with clicking toggle switch', () => {
+  const { container, getByTestId } = render(<App />)
+  const toggleButton = getByTestId('toggle-button')
 
-  toggleButton.simulate('click')
-  toggleButton.simulate('click')
+  Simulate.click(toggleButton)
+  expect(container.textContent).toBe('The button is on')
+  expect(toggleButton.classList.contains('toggle-btn-on')).toBe(true)
 
-  expect(wrap.find(sel('click-counter')).text()).toBe('Click count: 2')
-})
-
-test('App Component shows warning message when toggled more than 4 times', () => {
-  const wrap = mount(<App />)
-  const toggleButton = wrap.find('.toggle button')
-
-  for (let i = 0; i <= 4; i += 1) {
-    toggleButton.simulate('click')
-  }
-
-  expect(wrap.find(sel('click-warning')).exists()).toBeTruthy()
+  Simulate.click(toggleButton)
+  expect(container.textContent).toBe('The button is off')
+  expect(toggleButton.classList.contains('toggle-btn-off')).toBe(true)
 })
