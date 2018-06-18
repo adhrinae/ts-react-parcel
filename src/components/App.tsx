@@ -1,58 +1,48 @@
 import * as React from 'react'
+import { hot } from 'react-hot-loader'
 
 import Toggle from './Toggle'
 import Switch from './Switch'
 
-interface AppState {
-  timesClicked: number
-  on: boolean
+declare var module: any
+
+namespace Layers {
+  export const Layer1 = () => <Layer2 />
+
+  const Layer2 = () => (
+    <Toggle.Consumer>
+      {({ on }) => (
+        <>
+          {on ? 'The button is on' : 'The button is off'}
+          <Layer3 />
+        </>
+      )}
+    </Toggle.Consumer>
+  )
+
+  const Layer3 = () => <Layer4 />
+
+  const Layer4 = () => (
+    <Toggle.Consumer>
+      {({ on, toggle }) => <Switch on={on} onClick={toggle} />}
+    </Toggle.Consumer>
+  )
 }
 
-export default class App extends React.Component<{}, AppState> {
-  private initialState: AppState = { timesClicked: 0, on: false }
-
-  constructor(props: {}) {
-    super(props)
-    this.state = this.initialState
-  }
-
-  render(): JSX.Element {
-    const { timesClicked, on } = this.state
-    return (
-      <Toggle
-        on={on}
-        onToggle={this._handleToggle}
-        onReset={this._handleReset}
-        render={toggle => (
-          <div>
-            <Switch
-              {...toggle.getTogglerProps({
-                on: toggle.on,
-              })}
-            />
-            {timesClicked > 4 ? (
-              <div data-test="click-warning">
-                You've Clicked too much!
-                <br />
-                <button onClick={toggle.reset}>reset</button>
-              </div>
-            ) : timesClicked > 0 ? (
-              <div data-test="click-counter">Click count: {timesClicked}</div>
-            ) : null}
-          </div>
-        )}
-      />
-    )
-  }
-
-  private _handleToggle = () => {
-    this.setState(({ timesClicked, on }) => ({
-      timesClicked: timesClicked + 1,
-      on: timesClicked >= 4 ? false : !on,
-    }))
-  }
-
-  private _handleReset = () => {
-    this.setState(this.initialState)
-  }
+interface AppProps {
+  onToggle?(on: boolean): void
 }
+
+function App({
+  onToggle = (on: boolean) => console.log('ToggleStatus:', on),
+}: AppProps) {
+  return (
+    <div className="container">
+      <Toggle onToggle={onToggle}>
+        <Layers.Layer1 />
+      </Toggle>
+    </div>
+  )
+}
+
+export default hot(module)(App)

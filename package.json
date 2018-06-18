@@ -20,10 +20,6 @@
     }
   },
   "jest": {
-    "setupFiles": [
-      "<rootDir>/config/test-shim.js",
-      "<rootDir>/config/test-setup.js"
-    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",
@@ -45,15 +41,13 @@
   "license": "MIT",
   "dependencies": {
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "react-hot-loader": "^4.3.3"
   },
   "devDependencies": {
-    "@types/enzyme": "^3.1.10",
     "@types/jest": "^23.1.0",
     "@types/react": "^16.3.18",
     "@types/react-dom": "^16.0.6",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
     "husky": "^1.0.0-rc.9",
     "jest": "^23.1.0",
     "parcel-bundler": "^1.9.1",
