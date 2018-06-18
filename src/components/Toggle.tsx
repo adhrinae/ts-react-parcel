@@ -1,24 +1,24 @@
-import * as React from "react";
-import { SwitchProps } from "./Switch";
-import { compose } from "../utilities/compose";
+import * as React from 'react'
+import { SwitchProps } from './Switch'
+import { callAll } from '../utilities/callAll'
 
 interface TogglerProps {
-  on?: boolean;
-  toggle(): void;
-  reset(): void;
-  getTogglerProps(options?: SwitchProps): SwitchProps;
+  on?: boolean
+  toggle(): void
+  reset(): void
+  getTogglerProps(options?: SwitchProps): SwitchProps
 }
 
 interface ToggleProps {
-  defaultOn?: boolean;
-  on?: boolean;
-  onToggle(on?: boolean): void;
-  onReset(on?: boolean): void;
-  render(toggle: TogglerProps): JSX.Element;
+  defaultOn?: boolean
+  on?: boolean
+  onToggle(on?: boolean): void
+  onReset(on?: boolean): void
+  render(toggle: TogglerProps): JSX.Element
 }
 
 interface ToggleState {
-  on: boolean | undefined;
+  on: boolean | undefined
 }
 
 export default class Toggle extends React.Component<ToggleProps, ToggleState> {
@@ -26,16 +26,13 @@ export default class Toggle extends React.Component<ToggleProps, ToggleState> {
     defaultOn: false,
     onToggle: () => {},
     onReset: () => {},
-  };
+  }
 
-  private initialState: ToggleState = { on: this.props.defaultOn };
+  private initialState: ToggleState = { on: this.props.defaultOn }
 
   constructor(props: ToggleProps) {
-    super(props);
-    this.state = this.initialState;
-    this._toggle = this._toggle.bind(this);
-    this._reset = this._reset.bind(this);
-    this._getTogglerProps = this._getTogglerProps.bind(this);
+    super(props)
+    this.state = this.initialState
   }
 
   render(): JSX.Element {
@@ -44,35 +41,38 @@ export default class Toggle extends React.Component<ToggleProps, ToggleState> {
       toggle: this._toggle,
       reset: this._reset,
       getTogglerProps: this._getTogglerProps,
-    });
+    })
   }
 
-  private _toggle(): void {
-    const { on, onToggle } = this.props;
+  private _toggle = () => {
+    const { on, onToggle } = this.props
     if (this._isOnControlled()) {
-      onToggle(!on);
+      onToggle(!on)
     } else {
-      this.setState(({ on }) => ({ on: !on }), () => onToggle(this.state.on));
+      this.setState(({ on }) => ({ on: !on }), () => onToggle(this.state.on))
     }
   }
 
-  private _reset(): void {
-    const { on, onReset } = this.props;
+  private _reset = () => {
+    const { on, onReset } = this.props
     if (this._isOnControlled()) {
-      onReset(!on);
+      onReset(!on)
     } else {
-      this.setState(this.initialState, () => onReset(this.state.on));
+      this.setState(this.initialState, () => onReset(this.state.on))
     }
   }
 
-  private _getTogglerProps({ onClick, ...props }: SwitchProps = {}): SwitchProps {
+  private _getTogglerProps = ({
+    onClick,
+    ...props
+  }: SwitchProps = {}): SwitchProps => {
     return {
-      onClick: compose(onClick, this._toggle),
+      onClick: callAll(onClick, this._toggle),
       ...props,
-    };
+    }
   }
 
   private _isOnControlled(): boolean {
-    return this.props.on !== undefined;
+    return this.props.on !== undefined
   }
 }

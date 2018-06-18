@@ -10,8 +10,10 @@
   "scripts": {
     "develop": "parcel ./src/index.html",
     "build": "parcel build ./src/index.html --public-url '/'",
+    "prettify": "prettier --write 'src/**/*.ts'",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "precommit": "npm run prettify && npm run test"
   },
   "jest": {
     "setupFiles": [

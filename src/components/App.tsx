@@ -1,24 +1,23 @@
-import * as React from "react";
-import Toggle from "./Toggle";
-import Switch from "./Switch";
+import * as React from 'react'
+
+import Toggle from './Toggle'
+import Switch from './Switch'
 
 interface AppState {
-  timesClicked: number;
-  on: boolean;
+  timesClicked: number
+  on: boolean
 }
 
 export default class App extends React.Component<{}, AppState> {
-  private initialState: AppState = { timesClicked: 0, on: false };
+  private initialState: AppState = { timesClicked: 0, on: false }
 
   constructor(props: {}) {
-    super(props);
-    this.state = this.initialState;
-    this._handleToggle = this._handleToggle.bind(this);
-    this._handleReset = this._handleReset.bind(this);
+    super(props)
+    this.state = this.initialState
   }
 
   render(): JSX.Element {
-    const { timesClicked, on } = this.state;
+    const { timesClicked, on } = this.state
     return (
       <Toggle
         on={on}
@@ -43,17 +42,17 @@ export default class App extends React.Component<{}, AppState> {
           </div>
         )}
       />
-    );
+    )
   }
 
-  private _handleToggle(): void {
+  private _handleToggle = () => {
     this.setState(({ timesClicked, on }) => ({
       timesClicked: timesClicked + 1,
       on: timesClicked >= 4 ? false : !on,
-    }));
+    }))
   }
 
-  private _handleReset(): void {
-    this.setState(this.initialState);
+  private _handleReset = () => {
+    this.setState(this.initialState)
   }
 }
