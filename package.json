@@ -10,10 +10,14 @@
   "scripts": {
     "develop": "parcel ./src/index.html",
     "build": "parcel build ./src/index.html --public-url '/'",
-    "prettify": "prettier --write 'src/**/*.ts'",
+    "prettify": "prettier --write './src/**/*.{ts,tsx}'",
     "test": "jest",
-    "test:watch": "jest --watch",
-    "precommit": "npm run prettify && npm run test"
+    "test:watch": "jest --watch"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettify && npm run test"
+    }
   },
   "jest": {
     "setupFiles": [
@@ -50,6 +54,7 @@
     "@types/react-dom": "^16.0.6",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "husky": "^1.0.0-rc.9",
     "jest": "^23.1.0",
     "parcel-bundler": "^1.9.1",
     "parcel-plugin-typescript": "^1.0.0",
