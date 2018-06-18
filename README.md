@@ -9,8 +9,8 @@ The original source code of the provided example is [here](https://github.com/ke
 - React + ReactDOM (16.4.1)
 - Typescript (with TSLint setting)
 - Prettier + tslint-config-prettier
-- Test configuration using Jest + Enzyme
-- Parcel bundler (1.9.1)
+- Test configuration using Jest + Enzyme -> Changed to [react-testing-library](https://github.com/kentcdodds/react-testing-library)
+- Parcel bundler (1.9.1) + Hot module reloading
 
 ## How to set up the project
 
