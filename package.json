@@ -44,6 +44,7 @@
   "author": "Ahn Dohyung",
   "license": "MIT",
   "dependencies": {
+    "helpful-decorators": "^1.7.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-hot-loader": "^4.3.3"

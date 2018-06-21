@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { bind } from 'helpful-decorators'
 
 type RenderPropChildren<T> = (context: T) => JSX.Element
 
@@ -36,13 +37,6 @@ const ToggleConsumer: React.SFC<{
 export default class Toggle extends React.Component<ToggleProps, ToggleState> {
   static Consumer = ToggleConsumer
 
-  private toggle = () => {
-    this.setState(
-      ({ on }) => ({ on: !on }),
-      () => this.props.onToggle(this.state.on)
-    )
-  }
-
   state = {
     on: false,
     toggle: this.toggle,
@@ -57,6 +51,14 @@ export default class Toggle extends React.Component<ToggleProps, ToggleState> {
       <ToggleContext.Provider value={this.state} {...restProps}>
         {renderUI}
       </ToggleContext.Provider>
+    )
+  }
+
+  @bind
+  private toggle() {
+    this.setState(
+      ({ on }) => ({ on: !on }),
+      () => this.props.onToggle(this.state.on)
     )
   }
 }
