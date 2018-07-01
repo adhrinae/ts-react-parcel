@@ -4,6 +4,7 @@
     "module": "commonjs",
     "strict": true,
     "jsx": "react",
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "lib": ["dom", "es2015"]
   }
 }

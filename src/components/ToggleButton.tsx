@@ -1,14 +1,18 @@
 import * as React from 'react'
 
-export interface SwitchProps {
+export interface ToggleButtonProps {
   on?: boolean
   className?: string
   onClick?(): void
 }
 
-export default function Switch({ on, className = '', ...props }: SwitchProps) {
+export default function ToggleButton({
+  on,
+  className = '',
+  ...props
+}: ToggleButtonProps) {
   return (
-    <div className="toggle" data-testid="toggle-container">
+    <div className="toggle">
       <input className="toggle-input" type="checkbox" />
       <button
         data-testid="toggle-button"

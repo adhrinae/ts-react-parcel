@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { render, Simulate } from 'react-testing-library'
+import { render, fireEvent, waitForElement } from 'react-testing-library'
 
 import App from '../App'
 
 /**
- * Just a simple integration test
+ * Just a simple integration tests
  */
 
 test('App Component renders with toggle switch', () => {
@@ -13,15 +13,25 @@ test('App Component renders with toggle switch', () => {
   expect(wrap.getByTestId('toggle-container')).toBeTruthy()
 })
 
-test('App Component can change toggle status with clicking toggle switch', () => {
+test('App Component can change toggle status with clicking toggle switch', async () => {
   const { container, getByTestId } = render(<App />)
   const toggleButton = getByTestId('toggle-button')
 
-  Simulate.click(toggleButton)
-  expect(container.textContent).toBe('The button is on')
+  fireEvent.click(toggleButton)
+  let changedContainer = await waitForElement(
+    () => getByTestId('toggle-container'),
+    { container }
+  )
+  expect((changedContainer as HTMLElement).textContent).toBe('The button is on')
   expect(toggleButton.classList.contains('toggle-btn-on')).toBe(true)
 
-  Simulate.click(toggleButton)
-  expect(container.textContent).toBe('The button is off')
+  fireEvent.click(toggleButton)
+  changedContainer = await waitForElement(
+    () => getByTestId('toggle-container'),
+    { container }
+  )
+  expect((changedContainer as HTMLElement).textContent).toBe(
+    'The button is off'
+  )
   expect(toggleButton.classList.contains('toggle-btn-off')).toBe(true)
 })

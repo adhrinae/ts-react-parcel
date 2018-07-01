@@ -1,10 +1,7 @@
 import * as React from 'react'
-import { hot } from 'react-hot-loader'
 
 import Toggle from './Toggle'
-import Switch from './Switch'
-
-declare var module: any
+import ToggleButton from './ToggleButton'
 
 namespace Layers {
   export const Layer1 = () => <Layer2 />
@@ -24,7 +21,7 @@ namespace Layers {
 
   const Layer4 = () => (
     <Toggle.Consumer>
-      {({ on, toggle }) => <Switch on={on} onClick={toggle} />}
+      {({ on, toggle }) => <ToggleButton on={on} onClick={toggle} />}
     </Toggle.Consumer>
   )
 }
@@ -37,7 +34,7 @@ function App({
   onToggle = (on: boolean) => console.log('ToggleStatus:', on),
 }: AppProps) {
   return (
-    <div className="container">
+    <div className="container" data-testid="toggle-container">
       <Toggle onToggle={onToggle}>
         <Layers.Layer1 />
       </Toggle>
@@ -45,4 +42,4 @@ function App({
   )
 }
 
-export default hot(module)(App)
+export default App
