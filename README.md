@@ -10,7 +10,7 @@ The original source code of the provided example is [here](https://github.com/ke
 - Typescript (with TSLint setting)
 - Prettier + tslint-config-prettier
 - Test configuration using Jest + Enzyme -> Changed to [react-testing-library](https://github.com/kentcdodds/react-testing-library)
-- Parcel bundler (1.9.1) + Hot module reloading
+- Parcel bundler (1.9.3)
 
 ## How to set up the project
 
