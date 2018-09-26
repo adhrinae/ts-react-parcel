@@ -55,7 +55,6 @@
     "husky": "^1.0.0-rc.9",
     "jest": "^23.6.0",
     "parcel-bundler": "^1.10.0",
-    "parcel-plugin-typescript": "^1.0.0",
     "prettier": "^1.14.3",
     "react-test-renderer": "^16.5.2",
     "react-testing-library": "^5.1.0",
