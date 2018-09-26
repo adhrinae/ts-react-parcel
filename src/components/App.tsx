@@ -30,9 +30,9 @@ interface AppProps {
   onToggle?(on: boolean): void
 }
 
-function App({
+const App = ({
   onToggle = (on: boolean) => console.log('ToggleStatus:', on),
-}: AppProps) {
+}: AppProps) => {
   return (
     <div className="container" data-testid="toggle-container">
       <Toggle onToggle={onToggle}>

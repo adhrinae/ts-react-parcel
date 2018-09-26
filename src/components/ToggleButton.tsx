@@ -6,11 +6,7 @@ export interface ToggleButtonProps {
   onClick?(): void
 }
 
-export default function ToggleButton({
-  on,
-  className = '',
-  ...props
-}: ToggleButtonProps) {
+const ToggleButton = ({ on, className = '', ...props }: ToggleButtonProps) => {
   return (
     <div className="toggle">
       <input className="toggle-input" type="checkbox" />
@@ -24,3 +20,5 @@ export default function ToggleButton({
     </div>
   )
 }
+
+export default ToggleButton
