@@ -6,13 +6,17 @@ The original source code of the provided example is [here](https://github.com/ke
 
 ## Built in settings
 
-- React + ReactDOM (16.4.1)
+- React + ReactDOM (16.5.2)
 - Typescript (with TSLint setting)
 - Prettier + tslint-config-prettier
-- Test configuration using Jest + Enzyme -> Changed to [react-testing-library](https://github.com/kentcdodds/react-testing-library)
-- Parcel bundler (1.9.3)
+- Test configuration using Jest and [react-testing-library](https://github.com/kentcdodds/react-testing-library)
+- Parcel bundler (1.10.0) - Updated!
 
 ## How to set up the project
+
+**Disclaimer**  
+Since I only use Yarn as my primary package manager, this repository will ignore `package-lock.json` file on commit.  
+If you prefer npm to Yarn, Please modify `.gitignore` file following your flavor.
 
 ```
 git clone git@github.com:adhrinae/ts-react-parcel.git
