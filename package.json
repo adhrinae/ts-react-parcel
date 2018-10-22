@@ -1,12 +1,14 @@
 {
   "name": "ts-react-parcel",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "Typescript with React, using parcel bundler",
   "repository": {
     "type": "git",
-    "url": "https://github.com/emaren84/ts-react-parcel"
+    "url": "https://github.com/adhrinae/ts-react-parcel"
   },
-  "main": "index.js",
+  "author": "Ahn Dohyung",
+  "license": "MIT",
+  "main": "src/index.tsx",
   "scripts": {
     "develop": "concurrently -r \"npm:type-check:watch\" \"npm:start\"",
     "start": "parcel ./src/index.html",
@@ -44,8 +46,6 @@
     "React",
     "Parcel"
   ],
-  "author": "Ahn Dohyung",
-  "license": "MIT",
   "dependencies": {
     "helpful-decorators": "^1.7.2",
     "react": "^16.5.2",
