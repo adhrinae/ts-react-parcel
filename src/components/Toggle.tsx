@@ -5,7 +5,7 @@ type RenderPropChildren<T> = (context: T) => JSX.Element
 
 interface ToggleProps {
   onToggle(on: boolean): void
-  children: RenderPropChildren<ToggleState> | React.ReactNode
+  children: RenderPropChildren<ToggleState> | JSX.Element
 }
 
 interface ToggleState {
@@ -44,7 +44,7 @@ export default class Toggle extends React.Component<ToggleProps, ToggleState> {
 
   render() {
     const { children, ...restProps } = this.props
-    const renderUI: RenderPropChildren<ToggleState> | React.ReactNode =
+    const renderUI =
       typeof children === 'function' ? children(this.state) : children
 
     return (
