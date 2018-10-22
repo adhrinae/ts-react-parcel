@@ -8,11 +8,14 @@
   },
   "main": "index.js",
   "scripts": {
-    "develop": "parcel ./src/index.html",
-    "build": "parcel build ./src/index.html --public-url '/'",
+    "develop": "concurrently -r \"npm:type-check:watch\" \"npm:start\"",
+    "start": "parcel ./src/index.html",
+    "build": "npm run type-check && parcel build ./src/index.html --public-url '/'",
     "prettify": "prettier --write './src/**/*.{ts,tsx}'",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "tsc --noEmit --watch"
   },
   "husky": {
     "hooks": {
@@ -52,6 +55,7 @@
     "@types/jest": "^23.3.2",
     "@types/react": "^16.4.14",
     "@types/react-dom": "^16.0.7",
+    "concurrently": "^4.0.1",
     "husky": "^1.0.0-rc.9",
     "jest": "^23.6.0",
     "parcel-bundler": "^1.10.0",
