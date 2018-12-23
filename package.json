@@ -1,6 +1,6 @@
 {
   "name": "ts-react-parcel",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "Typescript with React, using parcel bundler",
   "repository": {
     "type": "git",
