@@ -30,7 +30,7 @@ interface AppProps {
   onToggle?(on: boolean): void
 }
 
-const App = ({
+const App: React.SFC<AppProps> = ({
   onToggle = (on: boolean) => console.log('ToggleStatus:', on),
 }: AppProps) => {
   return (

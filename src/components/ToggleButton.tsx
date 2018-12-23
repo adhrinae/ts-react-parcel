@@ -6,19 +6,22 @@ export interface ToggleButtonProps {
   onClick?(): void
 }
 
-const ToggleButton = ({ on, className = '', ...props }: ToggleButtonProps) => {
-  return (
-    <div className="toggle">
-      <input className="toggle-input" type="checkbox" />
-      <button
-        data-testid="toggle-button"
-        className={`${className} toggle-btn ${
-          on ? 'toggle-btn-on' : 'toggle-btn-off'
-        }`}
-        {...props}
-      />
-    </div>
-  )
-}
+const getClassName = (...classNames: string[]) =>
+  classNames.filter(Boolean).join(' ')
+
+const ToggleButton = ({ on, className = '', ...props }: ToggleButtonProps) => (
+  <div className="toggle">
+    <input className="toggle-input" type="checkbox" />
+    <button
+      data-testid="toggle-button"
+      className={getClassName(
+        className,
+        'toggle-btn',
+        on ? 'toggle-btn-on' : 'toggle-btn-off'
+      )}
+      {...props}
+    />
+  </div>
+)
 
 export default ToggleButton

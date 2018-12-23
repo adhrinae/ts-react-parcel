@@ -22,7 +22,7 @@ test('App Component can change toggle status with clicking toggle switch', async
     () => getByTestId('toggle-container'),
     { container }
   )
-  expect((changedContainer as HTMLElement).textContent).toBe('The button is on')
+  expect(changedContainer.textContent).toBe('The button is on')
   expect(toggleButton.classList.contains('toggle-btn-on')).toBe(true)
 
   fireEvent.click(toggleButton)
@@ -30,8 +30,6 @@ test('App Component can change toggle status with clicking toggle switch', async
     () => getByTestId('toggle-container'),
     { container }
   )
-  expect((changedContainer as HTMLElement).textContent).toBe(
-    'The button is off'
-  )
+  expect(changedContainer.textContent).toBe('The button is off')
   expect(toggleButton.classList.contains('toggle-btn-off')).toBe(true)
 })
