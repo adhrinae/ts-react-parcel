@@ -6,7 +6,7 @@ The original source code of the provided example is [here](https://github.com/ke
 
 ## Built in settings
 
-- React + ReactDOM (16.5.2)
+- React + ReactDOM (16.7.0)
 - Typescript (with TSLint setting)
 - Prettier + tslint-config-prettier
 - Test configuration using Jest and [react-testing-library](https://github.com/kentcdodds/react-testing-library)
