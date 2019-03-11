@@ -6,11 +6,11 @@ The original source code of the provided example is [here](https://github.com/ke
 
 ## Built in settings
 
-- React + ReactDOM (16.7.0)
+- React + ReactDOM (16.8.4)
 - Typescript (with TSLint setting)
 - Prettier + tslint-config-prettier
 - Test configuration using Jest and [react-testing-library](https://github.com/kentcdodds/react-testing-library)
-- Parcel bundler (1.10.0~)
+- Parcel bundler (1.12.0~)
 
 ## How to set up the project
 
