@@ -2,15 +2,15 @@
 
 This repository has basic settings for buildling react application in Typescript.
 
-The original source code of the provided example is [here](https://github.com/kentcdodds/advanced-react-patterns-v2/blob/master/src/exercises-final/11.extra-3.js).
+The original source code of the provided example is in [here](https://kentcdodds.com/blog/compound-components-with-react-hooks).
 
 ## Built in settings
 
-- React + ReactDOM (16.8.4)
+- React + ReactDOM (16.8+)
 - Typescript (with TSLint setting)
 - Prettier + tslint-config-prettier
 - Test configuration using Jest and [react-testing-library](https://github.com/kentcdodds/react-testing-library)
-- Parcel bundler (1.12.0~)
+- Parcel bundler (1.12+)
 
 ## How to set up the project
 
