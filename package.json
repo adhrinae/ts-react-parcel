@@ -10,14 +10,17 @@
   "license": "MIT",
   "main": "src/index.tsx",
   "scripts": {
-    "develop": "concurrently -r \"npm:type-check:watch\" \"npm:start\"",
+    "develop": "concurrently -r \"npm run typecheck:watch\" \"npm run start\"",
     "start": "parcel ./src/index.html",
     "build": "npm run type-check && parcel build ./src/index.html --public-url '/'",
-    "prettify": "prettier --write './src/**/*.{ts,tsx}'",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "type-check": "tsc --noEmit",
-    "type-check:watch": "tsc --noEmit --watch"
+    "prettify": "prettier --write ./src/**/*.{ts,tsx}",
+    "lint": "echo 'linting with eslint...'",
+    "test": "jest --passWithNoTests",
+    "test:coverage": "npm run test -- --coverage",
+    "test:watch": "npm run test -- --watch",
+    "typecheck": "tsc --noEmit",
+    "typecheck:watch": "npm run typecheck -- --watch",
+    "validate": "concurrently -r \"npm run lint\" \"npm run typecheck\" \"npm run test\""
   },
   "husky": {
     "hooks": {
@@ -28,51 +31,28 @@
     "node": ">= 8.11.0",
     "npm": ">= 6.0.0"
   },
-  "jest": {
-    "preset": "ts-jest",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ],
-    "setupFilesAfterEnv": [
-      "<rootDir>/src/setupTests.ts"
-    ],
-    "moduleNameMapper": {
-      ".+\\.css$": "<rootDir>/src/styleMock.ts"
-    },
-    "testMatch": [
-      "**/__tests__/*.(test|spec).(ts|tsx|js)"
-    ]
-  },
-  "keywords": [
-    "Typescript",
-    "React",
-    "Parcel"
-  ],
   "dependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.11",
-    "@types/node": "^11.13.6",
-    "@types/react": "^16.8.14",
-    "@types/react-dom": "^16.8.4",
-    "concurrently": "^4.1.0",
-    "husky": "^1.3.1",
-    "jest": "^24.7.1",
-    "jest-dom": "^3.1.3",
-    "jest-extended": "^0.11.1",
-    "parcel-bundler": "^1.12.3",
-    "prettier": "^1.17.0",
-    "react-test-renderer": "^16.8.6",
-    "react-testing-library": "^6.1.2",
-    "ts-jest": "^24.0.2",
-    "tslint": "^5.16.0",
-    "tslint-config-airbnb": "^5.11.1",
+    "@testing-library/jest-dom": "^5.3.0",
+    "@testing-library/react": "^10.0.2",
+    "@types/jest": "^25.1.4",
+    "@types/node": "^13.9.5",
+    "@types/react": "^16.9.27",
+    "@types/react-dom": "^16.9.5",
+    "concurrently": "^5.1.0",
+    "husky": "^4.2.3",
+    "jest": "^25.2.4",
+    "jest-extended": "^0.11.5",
+    "parcel": "^1.12.4",
+    "prettier": "^2.0.2",
+    "ts-jest": "^25.3.0",
+    "tslint": "^6.1.0",
+    "tslint-config-airbnb": "^5.11.2",
     "tslint-config-prettier": "^1.18.0",
-    "tslint-react": "^4.0.0",
-    "typescript": "^3.4.4"
+    "tslint-react": "^4.2.0",
+    "typescript": "^3.8.3"
   }
 }
